@@ -2,3 +2,4 @@
 console.clear();
 
 // Write stuff
+console.log('Hello world!')
