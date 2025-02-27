@@ -5,21 +5,22 @@
  */
 var kthDistinct = function(arr, k) {
   const seenSet = new Set();
-  const indexMap = new Map();
+  const uniqueSet = new Set();
 
   arr.forEach((c, i) => {
-    if (seenSet.has(c)) {
-      indexMap.delete(c)
+    if (!seenSet.has(c)) {
+      uniqueSet.add(c)
     } else {
-      seenSet.add(c);
-      indexMap.set(c, i)
+      uniqueSet.delete(c)
     }
+
+    seenSet.add(c);
   })
 
-  if (indexMap.size < k) {
+  if (uniqueSet.size < k) {
     return ''
   }
 
-  const keys = Array.from(indexMap.keys())
+  const keys = Array.from(uniqueSet)
   return keys[k-1]
 };
