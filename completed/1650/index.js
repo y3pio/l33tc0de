@@ -17,10 +17,6 @@ var lowestCommonAncestor = function(p, q) {
   const seen = new Set();
 
   while (p) {
-    if (seen.has(p)) {
-      return p;
-    }
-
     seen.add(p)
     p = p.parent;
   }
